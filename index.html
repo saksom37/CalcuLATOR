@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="uikit-3.16.23\css\uikit.min.css" />
+    <script src="uikit-3.16.23\js\uikit.min.js"></script>
+    <script src="uikit-3.16.23\js\uikit-icons.min.js"></script>
+    <style>
+        html {
+            background-image: url("https://www.wallpaperflare.com/static/430/481/310/background-spot-light-texture-wallpaper.jpg");
+            background-size: cover;
+        }
+
+        .a {
+
+            background-image: url("https://cdn.wallpapersafari.com/96/44/B3Zaho.jpg");
+            border: 5px solid #000;
+            width: 380px;
+            text-align: center;
+            margin: 10vh auto;
+            border-radius: 20px;
+        }
+
+        .a button {
+            padding: 0;
+            text-align: center;
+            font-size: 18px;
+            background-color: aliceblue;
+            border: 5px solid #000;
+            border-radius: 10px;
+            margin: 10px;
+            font-weight: 1000;
+            color: #000;
+        }
+
+
+
+        .a button:hover {
+            box-shadow: 0 0 15px 0 #f04b04;
+            background-color: rgb(239, 255, 10);
+        }
+
+        .uk-input {
+            margin-top: 10px;
+            height: 150px;
+            border: none;
+            border-radius: 12px;
+            padding: 1rem;
+            font-size: 2rem;
+            text-align: right;
+            pointer-events: none;
+        }
+
+        @media screen and (max-width: 635px) {
+            .a {
+                width: 95%;
+
+            }
+
+            .a button {
+                width: 18%;
+                font-size: 10px;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="a">
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <emp><input class="uk-input"></button></emp>
+        </div>
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <button class="uk-button uk-button-default btn" data-num="7">7</button>
+            <button class="uk-button uk-button-default btn" data-num="8">8</button>
+            <button class="uk-button uk-button-default btn" data-num="9">9</button>
+            <button class="uk-button uk-button-default btn-clr btn">CLeaR</button>
+        </div>
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <button class="uk-button uk-button-default btn" data-num="4">4</button>
+            <button class="uk-button uk-button-default btn" data-num="5">5</button>
+            <button class="uk-button uk-button-default btn" data-num="6">6</button>
+            <button class="uk-button uk-button-default btn" data-num="/">/</button>
+        </div>
+
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <button class="uk-button uk-button-default btn" data-num="1">1</button>
+            <button class="uk-button uk-button-default btn" data-num="2">2</button>
+            <button class="uk-button uk-button-default btn" data-num="3">3</button>
+            <button class="uk-button uk-button-default btn" data-num="*">*</button>
+        </div>
+
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <button class="uk-button uk-button-default btn" data-num="0">0</button>
+            <button class="uk-button uk-button-default btn" data-num="+">+</button>
+            <button class="uk-button uk-button-default btn" data-num="-">-</button>
+            <button class="uk-button uk-button-default btn" data-num=".">.</button>
+        </div>
+        <div class="uk-grid-collapse uk-child-width-expand@s uk-text-center" uk-grid>
+            <button class="uk-button uk-button-default btn-enter" style="text-align: center;">Enter</button>
+
+
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            let input = document.querySelector('.uk-input');
+            let buttons = document.querySelectorAll('.btn');
+            let equal = document.querySelector('.btn-enter');
+            let clear = document.querySelector('.btn-clr');
+
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function (e) {
+                    let value = e.target.dataset.num;
+                    input.value += value;
+                })
+            })
+            equal.addEventListener('click', function (e) {
+                if (input.value === '') {
+                    input.value = "";
+                }
+                else {
+                    let ans = eval(input.value);
+                    input.value = ans;
+                }
+            })
+            clear.addEventListener('click', function (e) {
+                input.value = "";
+            })
+
+
+        })();
+    </script>
+</body>
+
+</html>
